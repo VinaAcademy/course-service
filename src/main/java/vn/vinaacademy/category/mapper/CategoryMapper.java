@@ -2,7 +2,7 @@ package vn.vinaacademy.category.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import vn.vinaacademy.category.Category;
+import vn.vinaacademy.category.entity.Category;
 import vn.vinaacademy.category.dto.CategoryDto;
 import vn.vinaacademy.category.dto.CategoryRequest;
 
