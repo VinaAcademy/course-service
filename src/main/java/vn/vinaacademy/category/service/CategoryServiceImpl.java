@@ -49,7 +49,7 @@ public class CategoryServiceImpl implements CategoryService {
     @CacheEvict(value = CacheConstants.CATEGORIES, allEntries = true)
     @CachePut(value = CacheConstants.CATEGORY, key = "#result.slug")
     public CategoryDto createCategory(CategoryRequest request) {
-        String slug = StringUtils.isBlank(request.getSlug())
+        String slug = StringUtils.isNotBlank(request.getSlug())
                 ? request.getSlug() : SlugUtils.toSlug(request.getName());
 
         if (categoryRepository.existsBySlug(slug)) {
@@ -87,7 +87,7 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = categoryRepository.findBySlug(slug)
                 .orElseThrow(() -> BadRequestException.message("Danh mục không tồn tại"));
 
-        String newSlug = StringUtils.isBlank(request.getSlug())
+        String newSlug = StringUtils.isNotBlank(request.getSlug())
                 ? request.getSlug() : SlugUtils.toSlug(request.getName());
 
         if (!slug.equals(newSlug) && categoryRepository.existsBySlug(newSlug)) {
