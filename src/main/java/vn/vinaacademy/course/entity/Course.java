@@ -2,17 +2,13 @@ package vn.vinaacademy.course.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import vn.vinaacademy.category.Category;
+import vn.vinaacademy.category.entity.Category;
 import vn.vinaacademy.common.entity.BaseEntity;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Data
-@Getter
-@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

@@ -1,7 +1,7 @@
 package vn.vinaacademy.category.utils;
 
 import lombok.experimental.UtilityClass;
-import vn.vinaacademy.category.Category;
+import vn.vinaacademy.category.entity.Category;
 import vn.vinaacademy.category.dto.CategoryDto;
 import vn.vinaacademy.category.mapper.CategoryMapper;
 
@@ -31,7 +31,7 @@ public class CategoryUtils {
         return categoryDto;
     }
 
-    public static boolean isParent(Category parent, Category child) {
+    public static boolean isAncestor(Category parent, Category child) {
         if (child.getParent() == null) {
             return false;
         }
@@ -40,6 +40,6 @@ public class CategoryUtils {
             return true;
         }
 
-        return isParent(parent, child.getParent());
+        return isAncestor(parent, child.getParent());
     }
 }

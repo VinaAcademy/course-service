@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
-import vn.vinaacademy.category.Category;
+import vn.vinaacademy.category.entity.Category;
 import vn.vinaacademy.category.dto.CategoryDto;
 import vn.vinaacademy.category.dto.CategoryRequest;
 import vn.vinaacademy.category.mapper.CategoryMapper;
@@ -100,7 +100,7 @@ public class CategoryServiceImpl implements CategoryService {
                     .orElseThrow(() -> BadRequestException.message("Danh mục cha không tồn tại"));
 
             // Check if parent is child of category
-            if (CategoryUtils.isParent(category, parent)) {
+            if (CategoryUtils.isAncestor(category, parent)) {
                 throw BadRequestException.message("Danh mục cha không hợp lệ");
             }
         }

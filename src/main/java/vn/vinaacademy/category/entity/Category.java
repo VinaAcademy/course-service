@@ -1,4 +1,4 @@
-package vn.vinaacademy.category;
+package vn.vinaacademy.category.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,8 +8,6 @@ import vn.vinaacademy.course.entity.Course;
 import java.util.List;
 
 @Data
-@Getter
-@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

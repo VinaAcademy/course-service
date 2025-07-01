@@ -3,7 +3,7 @@ package vn.vinaacademy.category.repository;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import vn.vinaacademy.category.Category;
+import vn.vinaacademy.category.entity.Category;
 
 import java.util.List;
 import java.util.Optional;
