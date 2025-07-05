@@ -1,4 +1,4 @@
-package vn.vinaacademy.instructor.service;
+package vn.vinaacademy.instructor.service.impl;
 
 import vn.vinaacademy.client.UserClient;
 import vn.vinaacademy.common.exception.BadRequestException;
@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vn.vinaacademy.common.security.SecurityContextHelper;
+import vn.vinaacademy.instructor.service.CourseInstructorService;
 
 import java.util.UUID;
 
@@ -44,7 +45,6 @@ public class CourseInstructorServiceImpl implements CourseInstructorService {
         CourseInstructor instructor = CourseInstructor.builder()
                 .course(course)
                 .instructorId(request.getUserId())
-                .isOwner(request.getIsOwner())
                 .build();
 
         instructorRepository.save(instructor);

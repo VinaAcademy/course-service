@@ -33,12 +33,4 @@ public class InstructorController {
         InstructorInfoDto instructor = instructorService.registerAsInstructor();
         return ApiResponse.success("Đăng ký trở thành giảng viên thành công", instructor);
     }
-
-//    @GetMapping("/check/{userId}")
-//    @Operation(summary = "Kiểm tra người dùng có phải là giảng viên",
-//            description = "Kiểm tra xem một người dùng có role giảng viên hay không")
-//    public ApiResponse<Boolean> checkIfUserIsInstructor(@PathVariable UUID userId) {
-//        boolean isInstructor = instructorService.isInstructor(userId);
-//        return ApiResponse.success(isInstructor);
-//    }
 }

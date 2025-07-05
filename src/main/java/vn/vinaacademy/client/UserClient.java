@@ -1,5 +1,7 @@
 package vn.vinaacademy.client;
 
+import io.swagger.v3.oas.annotations.Operation;
+import org.springframework.web.bind.annotation.PostMapping;
 import vn.vinaacademy.client.dto.UserDto;
 import vn.vinaacademy.common.response.ApiResponse;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -14,4 +16,7 @@ public interface UserClient {
 
     @GetMapping("/{userId}")
     ApiResponse<UserDto> getUserByIdAsDto(@PathVariable("userId") UUID userId);
+
+    @PostMapping("/{userId}/register-instructor")
+    public ApiResponse<UserDto> registerAsInstructor(@PathVariable("userId") UUID userId);
 }

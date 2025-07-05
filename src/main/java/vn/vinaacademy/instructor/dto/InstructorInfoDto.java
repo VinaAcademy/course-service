@@ -9,4 +9,5 @@ public class InstructorInfoDto {
     private String email;
     private String description;
     private String avatarUrl;
+    private long totalCourses;
 }

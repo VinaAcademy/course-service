@@ -261,12 +261,4 @@ public class CourseController {
                 instructorId, page, size, sortBy, sortDirection);
         return ApiResponse.success(coursePage);
     }
-
-    // Lấy số lượng khóa học published của một giảng viên bất kỳ
-    @GetMapping("/instructor/{instructorId}/published/count")
-    public ApiResponse<Long> countPublishedCoursesByInstructor(@PathVariable UUID instructorId) {
-        long count = courseRepository.countCoursesByInstructorIdAndStatus(
-                Course.CourseStatus.PUBLISHED, instructorId);
-        return ApiResponse.success(count);
-    }
 }
