@@ -1,14 +1,21 @@
 package vn.vinaacademy.course.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
 import vn.vinaacademy.category.entity.Category;
 import vn.vinaacademy.common.entity.BaseEntity;
+import vn.vinaacademy.course.enums.CourseLevel;
+import vn.vinaacademy.course.enums.CourseStatus;
+import jakarta.persistence.*;
+import lombok.*;
+import vn.vinaacademy.instructor.CourseInstructor;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -133,8 +140,8 @@ public class Course extends BaseEntity {
 //    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
 //    private List<Enrollment> enrollments;
 //
-//    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<CourseInstructor> instructors = new ArrayList<>();
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CourseInstructor> instructors = new ArrayList<>();
 //
 //    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
 //    private List<CartItem> cartItems;
@@ -144,21 +151,4 @@ public class Course extends BaseEntity {
 //
 //    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
 //    private List<OrderItem> orderItems;
-
-    public enum CourseLevel {
-        BEGINNER, INTERMEDIATE, ADVANCED
-    }
-
-    @Getter
-    public enum CourseStatus {
-        DRAFT("bản nháp"), PENDING("chờ duyệt"),
-        PUBLISHED("đã duyệt"), REJECTED("bị từ chối");
-        private final String value;
-
-        CourseStatus(String value) {
-            this.value = value;
-        }
-
-    }
-
 }
