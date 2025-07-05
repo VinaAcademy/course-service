@@ -233,9 +233,12 @@ public class CourseServiceImpl implements CourseService {
         ) {
             throw BadRequestException.message("Người dùng không có quyền xóa khóa học này");
         }
-        if (course.getInstructors().stream()
-                .noneMatch(courseInstructor -> courseInstructor.getInstructorId().equals(currentUserId))) {
-            throw BadRequestException.message("Người dùng không phải chủ sở hữu khóa học này");
+
+        if (!securityContextHelper.hasAnyRole(AuthConstants.ADMIN_ROLE)) {
+            if (course.getInstructors().stream()
+                    .noneMatch(courseInstructor -> courseInstructor.getInstructorId().equals(currentUserId))) {
+                throw BadRequestException.message("Người dùng không phải chủ sở hữu khóa học này");
+            }
         }
 
         courseRepository.delete(course);

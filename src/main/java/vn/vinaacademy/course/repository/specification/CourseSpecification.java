@@ -107,13 +107,12 @@ public class CourseSpecification {
 
     // Thêm phương thức để lọc theo instructor
     public static Specification<Course> hasInstructor(UUID instructorId) {
-        if (instructorId == null) {
-            return null;
-        }
-
-        return (root, query, cb) -> {
+        return (root, query, criteriaBuilder) -> {
+            if (instructorId == null) {
+                return criteriaBuilder.conjunction();
+            }
             Join<Course, CourseInstructor> instructorJoin = root.join("instructors", JoinType.INNER);
-            return cb.equal(instructorJoin.get("instructor").get("id"), instructorId);
+            return criteriaBuilder.equal(instructorJoin.get("instructorId"), instructorId);
         };
     }
 }
