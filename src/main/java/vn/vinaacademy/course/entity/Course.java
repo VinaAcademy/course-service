@@ -1,14 +1,21 @@
 package vn.vinaacademy.course.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
 import vn.vinaacademy.category.entity.Category;
 import vn.vinaacademy.common.entity.BaseEntity;
 
+
+import jakarta.persistence.*;
+import lombok.*;
+import vn.vinaacademy.instructor.CourseInstructor;
+
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -39,7 +46,7 @@ public class Course extends BaseEntity {
 
     @Column(name = "level")
     @Enumerated(EnumType.STRING)
-    private CourseLevel level = CourseLevel.BEGINNER;
+    private Course.CourseLevel level = CourseLevel.BEGINNER;
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
@@ -67,7 +74,7 @@ public class Course extends BaseEntity {
     @Column(name = "total_lesson")
     private long totalLesson = 0;
 
-//    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    //    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
 //    private List<Section> sections = new ArrayList<>();
 //
 //    public void addSection(Section section) {
@@ -133,23 +140,13 @@ public class Course extends BaseEntity {
 //    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
 //    private List<Enrollment> enrollments;
 //
-//    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<CourseInstructor> instructors = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-//    private List<CartItem> cartItems;
-//
-//    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<CourseReview> courseReviews = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-//    private List<OrderItem> orderItems;
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CourseInstructor> instructors = new ArrayList<>();
 
     public enum CourseLevel {
         BEGINNER, INTERMEDIATE, ADVANCED
     }
 
-    @Getter
     public enum CourseStatus {
         DRAFT("bản nháp"), PENDING("chờ duyệt"),
         PUBLISHED("đã duyệt"), REJECTED("bị từ chối");
@@ -159,6 +156,18 @@ public class Course extends BaseEntity {
             this.value = value;
         }
 
+        public String getValue() {
+            return value;
+        }
     }
 
+//
+//    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+//    private List<CartItem> cartItems;
+//
+//    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<CourseReview> courseReviews = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+//    private List<OrderItem> orderItems;
 }
