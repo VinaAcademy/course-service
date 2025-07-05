@@ -5,7 +5,7 @@ import vn.vinaacademy.common.exception.ResourceNotFoundException;
 import vn.vinaacademy.common.response.ApiResponse;
 import vn.vinaacademy.course.dto.*;
 import vn.vinaacademy.course.entity.Course;
-import vn.vinaacademy.course.enums.CourseStatus;
+
 import vn.vinaacademy.course.repository.CourseRepository;
 import vn.vinaacademy.course.service.CourseService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -235,7 +235,7 @@ public class CourseController {
             }
 
             // Chuyển trạng thái khóa học sang PENDING
-            course.setStatus(CourseStatus.PENDING);
+            course.setStatus(Course.CourseStatus.PENDING);
             courseRepository.save(course);
 
             log.info("Khóa học với ID {} đã được chuyển sang trạng thái PENDING", courseId);
@@ -266,7 +266,7 @@ public class CourseController {
     @GetMapping("/instructor/{instructorId}/published/count")
     public ApiResponse<Long> countPublishedCoursesByInstructor(@PathVariable UUID instructorId) {
         long count = courseRepository.countCoursesByInstructorIdAndStatus(
-                CourseStatus.PUBLISHED, instructorId);
+                Course.CourseStatus.PUBLISHED, instructorId);
         return ApiResponse.success(count);
     }
 }

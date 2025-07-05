@@ -1,8 +1,8 @@
 package vn.vinaacademy.course.repository.specification;
 
 import vn.vinaacademy.course.entity.Course;
-import vn.vinaacademy.course.enums.CourseLevel;
-import vn.vinaacademy.course.enums.CourseStatus;
+
+
 import vn.vinaacademy.instructor.CourseInstructor;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;
@@ -26,7 +26,7 @@ public class CourseSpecification {
         };
     }
 
-    public static Specification<Course> hasStatus(CourseStatus status) {
+    public static Specification<Course> hasStatus(Course.CourseStatus status) {
         return (root, query, criteriaBuilder) -> {
             if (status == null) {
                 return criteriaBuilder.conjunction();
@@ -34,8 +34,8 @@ public class CourseSpecification {
             return criteriaBuilder.equal(root.get("status"), status);
         };
     }
-    
-    public static Specification<Course> dontHasStatus(CourseStatus status) {
+
+    public static Specification<Course> dontHasStatus(Course.CourseStatus status) {
         return (root, query, criteriaBuilder) -> {
             if (status == null) {
                 return criteriaBuilder.conjunction();
@@ -53,7 +53,7 @@ public class CourseSpecification {
         };
     }
 
-    public static Specification<Course> hasLevel(CourseLevel level) {
+    public static Specification<Course> hasLevel(Course.CourseLevel level) {
         return (root, query, criteriaBuilder) -> {
             if (level == null) {
                 return criteriaBuilder.conjunction();

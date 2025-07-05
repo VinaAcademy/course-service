@@ -2,8 +2,8 @@ package vn.vinaacademy.course.entity;
 
 import vn.vinaacademy.category.entity.Category;
 import vn.vinaacademy.common.entity.BaseEntity;
-import vn.vinaacademy.course.enums.CourseLevel;
-import vn.vinaacademy.course.enums.CourseStatus;
+
+
 import jakarta.persistence.*;
 import lombok.*;
 import vn.vinaacademy.instructor.CourseInstructor;
@@ -46,7 +46,7 @@ public class Course extends BaseEntity {
 
     @Column(name = "level")
     @Enumerated(EnumType.STRING)
-    private CourseLevel level = CourseLevel.BEGINNER;
+    private Course.CourseLevel level = CourseLevel.BEGINNER;
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
@@ -74,7 +74,7 @@ public class Course extends BaseEntity {
     @Column(name = "total_lesson")
     private long totalLesson = 0;
 
-//    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    //    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
 //    private List<Section> sections = new ArrayList<>();
 //
 //    public void addSection(Section section) {
@@ -142,6 +142,25 @@ public class Course extends BaseEntity {
 //
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CourseInstructor> instructors = new ArrayList<>();
+
+    public enum CourseLevel {
+        BEGINNER, INTERMEDIATE, ADVANCED
+    }
+
+    public enum CourseStatus {
+        DRAFT("bản nháp"), PENDING("chờ duyệt"),
+        PUBLISHED("đã duyệt"), REJECTED("bị từ chối");
+        private final String value;
+
+        CourseStatus(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
+
 //
 //    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
 //    private List<CartItem> cartItems;

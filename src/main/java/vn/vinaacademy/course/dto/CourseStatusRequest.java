@@ -1,11 +1,12 @@
 package vn.vinaacademy.course.dto;
 
 
-import vn.vinaacademy.course.enums.CourseStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import vn.vinaacademy.course.entity.Course;
 
 @Data
 @Builder
@@ -15,7 +16,7 @@ public class CourseStatusRequest {
     
     private String slug;
     
-    private CourseStatus status;
+    private Course.CourseStatus status;
 
    
 }

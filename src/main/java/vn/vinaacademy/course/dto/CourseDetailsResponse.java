@@ -2,13 +2,12 @@ package vn.vinaacademy.course.dto;
 
 import vn.vinaacademy.client.dto.UserDto;
 import vn.vinaacademy.common.dto.BaseDto;
-import vn.vinaacademy.course.enums.CourseLevel;
-import vn.vinaacademy.course.enums.CourseStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import vn.vinaacademy.course.entity.Course;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -27,8 +26,8 @@ public class CourseDetailsResponse extends BaseDto {
     private String description;
     private String slug;
     private BigDecimal price;
-    private CourseLevel level;
-    private CourseStatus status;
+     private Course.CourseLevel level;
+    private Course.CourseStatus status;
     private String language;
     private String categorySlug;
     private String categoryName;

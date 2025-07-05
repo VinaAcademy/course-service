@@ -1,8 +1,8 @@
 package vn.vinaacademy.course.dto;
 
 
-import vn.vinaacademy.course.enums.CourseLevel;
-import vn.vinaacademy.course.enums.CourseStatus;
+
+
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import vn.vinaacademy.course.entity.Course;
 
 import java.math.BigDecimal;
 
@@ -32,9 +33,9 @@ public class CourseRequest {
     private BigDecimal price;
 
     @NotNull(message = "Cấp độ khóa học không được để trống")
-    private CourseLevel level;
+     private Course.CourseLevel level;
 
-    private CourseStatus status;
+    private Course.CourseStatus status;
 
     @NotBlank(message = "Ngôn ngữ khóa học không được để trống")
     private String language;

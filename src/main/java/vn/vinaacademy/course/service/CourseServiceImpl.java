@@ -8,7 +8,7 @@ import vn.vinaacademy.common.helpers.SlugGeneratorHelper;
 import vn.vinaacademy.common.utils.SlugUtils;
 import vn.vinaacademy.course.dto.*;
 import vn.vinaacademy.course.entity.Course;
-import vn.vinaacademy.course.enums.CourseStatus;
+
 import vn.vinaacademy.course.mapper.CourseMapper;
 import vn.vinaacademy.course.repository.CourseRepository;
 import vn.vinaacademy.course.repository.specification.CourseSpecification;
@@ -118,7 +118,7 @@ public class CourseServiceImpl implements CourseService {
         Specification<Course> spec = Specification.where(CourseSpecification.hasKeyword(searchRequest.getKeyword()))
                 .and(CourseSpecification.hasStatus(
                         searchRequest.getStatus() != null ? searchRequest.getStatus() : null))
-                .and(CourseSpecification.dontHasStatus(CourseStatus.DRAFT))
+                .and(CourseSpecification.dontHasStatus(Course.CourseStatus.DRAFT))
                 .and(CourseSpecification.hasCategory(searchRequest.getCategorySlug()))
                 .and(CourseSpecification.hasLevel(searchRequest.getLevel()))
                 .and(CourseSpecification.hasLanguage(searchRequest.getLanguage()))
@@ -178,7 +178,7 @@ public class CourseServiceImpl implements CourseService {
                 // .totalSection(0)
                 // .totalLesson(0)
                 .slug(slug)
-                .status(CourseStatus.DRAFT)
+                .status(Course.CourseStatus.DRAFT)
                 .build();
 
         courseRepository.save(course);
@@ -274,7 +274,7 @@ public class CourseServiceImpl implements CourseService {
 
         // Build specification dynamically using the utility class
         Specification<Course> spec = Specification.where(CourseSpecification.hasKeyword(searchRequest.getKeyword()))
-                .and(CourseSpecification.hasStatus(CourseStatus.PUBLISHED))
+                .and(CourseSpecification.hasStatus(Course.CourseStatus.PUBLISHED))
                 .and(CourseSpecification.hasCategory(searchRequest.getCategorySlug()))
                 .and(CourseSpecification.hasLevel(searchRequest.getLevel()))
                 .and(CourseSpecification.hasLanguage(searchRequest.getLanguage()))
@@ -331,7 +331,7 @@ public class CourseServiceImpl implements CourseService {
         Course course = courseRepository.findBySlug(slug)
                 .orElseThrow(() -> BadRequestException.message("Khóa học không tồn tại"));
         CourseDto courseDto = courseMapper.toDTO(course);
-        if (course.getStatus() != CourseStatus.PUBLISHED) {
+        if (course.getStatus() != Course.CourseStatus.PUBLISHED) {
             throw BadRequestException.message("Khóa học chưa được công khai");
         }
 
@@ -483,14 +483,14 @@ public class CourseServiceImpl implements CourseService {
         long totalPending = 0;
 
         for (Object[] result : statusCounts) {
-            CourseStatus status = (CourseStatus) result[0];
+            Course.CourseStatus status = (Course.CourseStatus) result[0];
             long count = (long) result[1];
 
-            if (status == CourseStatus.PUBLISHED) {
+            if (status == Course.CourseStatus.PUBLISHED) {
                 totalPublished = count;
-            } else if (status == CourseStatus.REJECTED) {
+            } else if (status == Course.CourseStatus.REJECTED) {
                 totalRejected = count;
-            } else if (status == CourseStatus.PENDING) {
+            } else if (status == Course.CourseStatus.PENDING) {
                 totalPending = count;
             }
         }
@@ -523,7 +523,7 @@ public class CourseServiceImpl implements CourseService {
 
         // Lọc theo instructor và status = PUBLISHED
         Specification<Course> spec = Specification.where(CourseSpecification.hasInstructor(instructorId))
-                .and(CourseSpecification.hasStatus(CourseStatus.PUBLISHED));
+                .and(CourseSpecification.hasStatus(Course.CourseStatus.PUBLISHED));
 
         Page<Course> coursePage = courseRepository.findAll(spec, pageable);
         return coursePage.map(courseMapper::toDTO);

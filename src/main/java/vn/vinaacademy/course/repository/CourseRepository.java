@@ -1,8 +1,8 @@
 package vn.vinaacademy.course.repository;
 
 import vn.vinaacademy.course.entity.Course;
-import vn.vinaacademy.course.enums.CourseLevel;
-import vn.vinaacademy.course.enums.CourseStatus;
+
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -27,7 +27,7 @@ public interface CourseRepository extends JpaRepository<Course, UUID>, JpaSpecif
     List<Course> findAllCourseByCategory(@Param("slug") String slug);
 
     // Tìm tất cả khóa học theo trạng thái
-    List<Course> findByStatus(CourseStatus status);
+    List<Course> findByStatus(Course.CourseStatus status);
 
     boolean existsById(UUID id);
 
@@ -47,15 +47,15 @@ public interface CourseRepository extends JpaRepository<Course, UUID>, JpaSpecif
             "AND c.status = :status")
     Page<Course> searchCourses(
             @Param("keyword") String keyword,
-            @Param("status") CourseStatus status, Pageable pageable);
+            @Param("status") Course.CourseStatus status, Pageable pageable);
 
     // Lấy khóa học phổ biến dựa trên số lượng học viên đăng ký
     @Query("SELECT c FROM Course c WHERE c.status = :status ORDER BY c.totalStudent DESC")
-    Page<Course> findPopularCourses(@Param("status") CourseStatus status, Pageable pageable);
+    Page<Course> findPopularCourses(@Param("status") Course.CourseStatus status, Pageable pageable);
 
     // Lấy khóa học mới nhất dựa trên thời gian tạo
     @Query("SELECT c FROM Course c WHERE c.status = :status ORDER BY c.createdDate DESC")
-    Page<Course> findNewestCourses(@Param("status") CourseStatus status, Pageable pageable);
+    Page<Course> findNewestCourses(@Param("status") Course.CourseStatus status, Pageable pageable);
 
     // Lấy khóa học của giảng viên
     @Query("SELECT c FROM Course c JOIN c.instructors i WHERE i.instructorId = :instructorId")
@@ -67,10 +67,10 @@ public interface CourseRepository extends JpaRepository<Course, UUID>, JpaSpecif
 
     // Lấy khóa học dựa trên đánh giá cao
     @Query("SELECT c FROM Course c WHERE c.status = :status ORDER BY c.rating DESC")
-    Page<Course> findTopRatedCourses(@Param("status") CourseStatus status, Pageable pageable);
+    Page<Course> findTopRatedCourses(@Param("status") Course.CourseStatus status, Pageable pageable);
 
     // Đếm số lượng khóa học theo trạng thái
-    long countByStatus(CourseStatus status);
+    long countByStatus(Course.CourseStatus status);
 
     // Đếm số lượng khóa học mà người dùng đã tạo
     @Query("SELECT COUNT(c) FROM Course c JOIN c.instructors i WHERE i.instructorId = :instructorId")
@@ -78,7 +78,7 @@ public interface CourseRepository extends JpaRepository<Course, UUID>, JpaSpecif
 
     // Đếm số lượng khóa học published của một instructor
     @Query("SELECT COUNT(c) FROM Course c JOIN c.instructors i WHERE i.instructorId = :instructorId AND c.status = :status")
-    long countCoursesByInstructorIdAndStatus(CourseStatus status, UUID instructorId);
+    long countCoursesByInstructorIdAndStatus(Course.CourseStatus status, UUID instructorId);
 
     // Tìm kiếm khóa học theo nhiều tiêu chí
     @Query("SELECT c FROM Course c WHERE " +
@@ -93,9 +93,9 @@ public interface CourseRepository extends JpaRepository<Course, UUID>, JpaSpecif
             "AND (:minRating IS NULL OR c.rating >= :minRating)")
     Page<Course> advancedSearchCourses(
             @Param("keyword") String keyword,
-            @Param("status") CourseStatus status,
+            @Param("status") Course.CourseStatus status,
             @Param("categoryId") UUID categoryId,
-            @Param("level") CourseLevel level,
+            @Param("level") Course.CourseLevel level,
             @Param("language") String language,
             @Param("minPrice") BigDecimal minPrice,
             @Param("maxPrice") BigDecimal maxPrice,
