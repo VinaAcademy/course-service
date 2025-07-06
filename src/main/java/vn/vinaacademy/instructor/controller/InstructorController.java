@@ -1,14 +1,14 @@
 package vn.vinaacademy.instructor.controller;
 
-import vn.vinaacademy.common.response.ApiResponse;
-import vn.vinaacademy.instructor.dto.InstructorInfoDto;
-import vn.vinaacademy.instructor.service.InstructorService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import vn.vinaacademy.common.constant.AuthConstants;
+import vn.vinaacademy.common.response.ApiResponse;
 import vn.vinaacademy.common.security.annotation.HasAnyRole;
+import vn.vinaacademy.instructor.dto.InstructorInfoDto;
+import vn.vinaacademy.instructor.service.InstructorService;
 
 import java.util.UUID;
 

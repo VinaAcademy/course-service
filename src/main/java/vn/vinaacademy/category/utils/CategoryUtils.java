@@ -1,8 +1,8 @@
 package vn.vinaacademy.category.utils;
 
 import lombok.experimental.UtilityClass;
-import vn.vinaacademy.category.entity.Category;
 import vn.vinaacademy.category.dto.CategoryDto;
+import vn.vinaacademy.category.entity.Category;
 import vn.vinaacademy.category.mapper.CategoryMapper;
 
 import java.util.List;

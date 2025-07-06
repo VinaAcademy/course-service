@@ -1,9 +1,9 @@
 package vn.vinaacademy.instructor;
 
-import vn.vinaacademy.common.entity.BaseEntity;
-import vn.vinaacademy.course.entity.Course;
 import jakarta.persistence.*;
 import lombok.*;
+import vn.vinaacademy.common.entity.BaseEntity;
+import vn.vinaacademy.course.entity.Course;
 
 import java.util.UUID;
 

@@ -1,11 +1,11 @@
 package vn.vinaacademy.client.service;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import vn.vinaacademy.client.UserClient;
 import vn.vinaacademy.client.dto.UserDto;
 import vn.vinaacademy.common.exception.BadRequestException;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 

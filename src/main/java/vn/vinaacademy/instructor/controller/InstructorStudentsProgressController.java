@@ -1,21 +1,12 @@
 package vn.vinaacademy.instructor.controller;
 
-import vn.vinaacademy.common.response.ApiResponse;
-import vn.vinaacademy.common.response.PaginationResponse;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.web.bind.annotation.*;
-import vn.vinaacademy.common.constant.AuthConstants;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import vn.vinaacademy.common.security.SecurityContextHelper;
-import vn.vinaacademy.common.security.annotation.HasAnyRole;
-
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/instructor/courses")

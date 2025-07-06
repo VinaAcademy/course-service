@@ -1,10 +1,10 @@
 package vn.vinaacademy.instructor.mapper;
 
-import vn.vinaacademy.instructor.CourseInstructor;
-import vn.vinaacademy.instructor.dto.CourseInstructorDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
+import vn.vinaacademy.instructor.CourseInstructor;
+import vn.vinaacademy.instructor.dto.CourseInstructorDto;
 
 @Mapper(componentModel = "spring")
 public interface CourseInstructorMapper {
