@@ -8,7 +8,7 @@ import vn.vinaacademy.common.exception.BadRequestException;
 import vn.vinaacademy.common.security.SecurityContextHelper;
 import vn.vinaacademy.course.entity.Course;
 import vn.vinaacademy.course.repository.CourseRepository;
-import vn.vinaacademy.instructor.CourseInstructor;
+import vn.vinaacademy.instructor.entity.CourseInstructor;
 import vn.vinaacademy.instructor.dto.CourseInstructorDto;
 import vn.vinaacademy.instructor.dto.CourseInstructorDtoRequest;
 import vn.vinaacademy.instructor.mapper.CourseInstructorMapper;

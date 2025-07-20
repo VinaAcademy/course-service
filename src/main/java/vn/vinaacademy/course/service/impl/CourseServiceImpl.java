@@ -1,4 +1,4 @@
-package vn.vinaacademy.course.service;
+package vn.vinaacademy.course.service.impl;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +25,9 @@ import vn.vinaacademy.course.dto.CourseStatusRequest;
 import vn.vinaacademy.course.entity.Course;
 import vn.vinaacademy.course.mapper.CourseMapper;
 import vn.vinaacademy.course.repository.CourseRepository;
+import vn.vinaacademy.course.service.CourseService;
 import vn.vinaacademy.event.NotificationEventSender;
-import vn.vinaacademy.instructor.CourseInstructor;
+import vn.vinaacademy.instructor.entity.CourseInstructor;
 import vn.vinaacademy.instructor.repository.CourseInstructorRepository;
 import vn.vinaacademy.kafka.event.NotificationCreateEvent;
 

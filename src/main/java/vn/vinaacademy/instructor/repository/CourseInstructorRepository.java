@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import vn.vinaacademy.course.entity.Course;
-import vn.vinaacademy.instructor.CourseInstructor;
+import vn.vinaacademy.instructor.entity.CourseInstructor;
 
 import java.util.List;
 import java.util.Optional;

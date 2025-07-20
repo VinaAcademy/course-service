@@ -4,7 +4,7 @@ import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;
 import org.springframework.data.jpa.domain.Specification;
 import vn.vinaacademy.course.entity.Course;
-import vn.vinaacademy.instructor.CourseInstructor;
+import vn.vinaacademy.instructor.entity.CourseInstructor;
 
 import java.math.BigDecimal;
 import java.util.UUID;
