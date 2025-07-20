@@ -154,7 +154,6 @@ public class CourseServiceImpl implements CourseService {
                 .totalLesson(0)
                 .totalRating(0)
                 .totalSection(0)
-                .totalLesson(0)
                 .slug(slug)
                 .status(Course.CourseStatus.DRAFT)
                 .build();
