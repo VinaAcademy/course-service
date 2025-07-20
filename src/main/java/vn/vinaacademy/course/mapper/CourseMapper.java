@@ -1,13 +1,12 @@
 package vn.vinaacademy.course.mapper;
 
 
-import vn.vinaacademy.course.dto.CourseDetailsResponse;
-import vn.vinaacademy.course.dto.CourseDto;
-import vn.vinaacademy.course.dto.CourseRequest;
-import vn.vinaacademy.course.entity.Course;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
+import vn.vinaacademy.course.dto.CourseDetailsResponse;
+import vn.vinaacademy.course.dto.CourseDto;
+import vn.vinaacademy.course.entity.Course;
 
 @Mapper(componentModel = "spring")
 public interface CourseMapper {

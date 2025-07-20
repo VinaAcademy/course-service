@@ -16,5 +16,4 @@ import java.util.UUID;
 public class CourseInstructorDtoRequest {
     private UUID userId;
     private UUID courseId;
-    private Boolean isOwner;
 }

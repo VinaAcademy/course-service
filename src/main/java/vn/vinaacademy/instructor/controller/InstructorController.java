@@ -1,14 +1,14 @@
 package vn.vinaacademy.instructor.controller;
 
-import vn.vinaacademy.common.response.ApiResponse;
-import vn.vinaacademy.instructor.dto.InstructorInfoDto;
-import vn.vinaacademy.instructor.service.InstructorService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import vn.vinaacademy.common.constant.AuthConstants;
+import vn.vinaacademy.common.response.ApiResponse;
 import vn.vinaacademy.common.security.annotation.HasAnyRole;
+import vn.vinaacademy.instructor.dto.InstructorInfoDto;
+import vn.vinaacademy.instructor.service.InstructorService;
 
 import java.util.UUID;
 
@@ -33,12 +33,4 @@ public class InstructorController {
         InstructorInfoDto instructor = instructorService.registerAsInstructor();
         return ApiResponse.success("Đăng ký trở thành giảng viên thành công", instructor);
     }
-
-//    @GetMapping("/check/{userId}")
-//    @Operation(summary = "Kiểm tra người dùng có phải là giảng viên",
-//            description = "Kiểm tra xem một người dùng có role giảng viên hay không")
-//    public ApiResponse<Boolean> checkIfUserIsInstructor(@PathVariable UUID userId) {
-//        boolean isInstructor = instructorService.isInstructor(userId);
-//        return ApiResponse.success(isInstructor);
-//    }
 }

@@ -1,12 +1,12 @@
 package vn.vinaacademy.course.dto;
 
-import vn.vinaacademy.client.dto.UserDto;
-import vn.vinaacademy.common.dto.BaseDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import vn.vinaacademy.client.dto.UserDto;
+import vn.vinaacademy.common.dto.BaseDto;
 import vn.vinaacademy.course.entity.Course;
 
 import java.math.BigDecimal;

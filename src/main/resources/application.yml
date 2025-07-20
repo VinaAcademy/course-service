@@ -37,7 +37,11 @@ spring:
     redis:
       host: localhost
       port: 6379
-
+    elasticsearch:
+      repositories:
+        enabled: true
+  elasticsearch:
+    uris: http://localhost:9200
 
 eureka:
   client:

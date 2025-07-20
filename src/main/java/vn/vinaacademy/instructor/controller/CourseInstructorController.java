@@ -1,9 +1,5 @@
 package vn.vinaacademy.instructor.controller;
 
-import vn.vinaacademy.common.response.ApiResponse;
-import vn.vinaacademy.instructor.dto.CourseInstructorDto;
-import vn.vinaacademy.instructor.dto.CourseInstructorDtoRequest;
-import vn.vinaacademy.instructor.service.CourseInstructorService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -14,7 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import vn.vinaacademy.common.constant.AuthConstants;
+import vn.vinaacademy.common.response.ApiResponse;
 import vn.vinaacademy.common.security.annotation.HasAnyRole;
+import vn.vinaacademy.instructor.dto.CourseInstructorDto;
+import vn.vinaacademy.instructor.dto.CourseInstructorDtoRequest;
+import vn.vinaacademy.instructor.service.CourseInstructorService;
 
 @RestController
 @RequestMapping("/api/v1/courseinstructor")

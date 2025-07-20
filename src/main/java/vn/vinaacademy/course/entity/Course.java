@@ -1,12 +1,10 @@
 package vn.vinaacademy.course.entity;
 
-import vn.vinaacademy.category.entity.Category;
-import vn.vinaacademy.common.entity.BaseEntity;
-
-
 import jakarta.persistence.*;
 import lombok.*;
-import vn.vinaacademy.instructor.CourseInstructor;
+import vn.vinaacademy.category.entity.Category;
+import vn.vinaacademy.common.entity.BaseEntity;
+import vn.vinaacademy.instructor.entity.CourseInstructor;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

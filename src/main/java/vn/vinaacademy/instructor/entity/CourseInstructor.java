@@ -1,9 +1,9 @@
-package vn.vinaacademy.instructor;
+package vn.vinaacademy.instructor.entity;
 
-import vn.vinaacademy.common.entity.BaseEntity;
-import vn.vinaacademy.course.entity.Course;
 import jakarta.persistence.*;
 import lombok.*;
+import vn.vinaacademy.common.entity.BaseEntity;
+import vn.vinaacademy.course.entity.Course;
 
 import java.util.UUID;
 
@@ -15,7 +15,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "course_instructor")
+@Table(name = "course_instructor", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"course_id", "is_owner"}),
+        @UniqueConstraint(columnNames = {"user_id", "course_id"})
+})
 public class CourseInstructor extends BaseEntity {
 
     @Id
@@ -24,6 +27,12 @@ public class CourseInstructor extends BaseEntity {
 
     @Column(name = "user_id", nullable = false)
     private UUID instructorId;
+
+    @Column(name = "course_instructor_full_name")
+    private String instructorFullName;
+
+    @Column(name = "course_instructor_avatar")
+    private String instructorAvatar;
 
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)

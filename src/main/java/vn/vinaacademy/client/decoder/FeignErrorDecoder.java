@@ -1,12 +1,12 @@
 package vn.vinaacademy.client.decoder;
 
-import vn.vinaacademy.common.exception.BadRequestException;
-import vn.vinaacademy.common.exception.ResourceNotFoundException;
 import feign.Response;
 import feign.codec.ErrorDecoder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import vn.vinaacademy.common.exception.BadRequestException;
+import vn.vinaacademy.common.exception.ResourceNotFoundException;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
