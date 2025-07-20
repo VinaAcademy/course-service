@@ -193,7 +193,7 @@ public class CourseServiceImpl implements CourseService {
         course.setLanguage(request.getLanguage());
         course.setLevel(request.getLevel());
         course.setPrice(request.getPrice());
-        course.setStatus(request.getStatus());
+//        course.setStatus(request.getStatus());
         courseRepository.save(course);
         return courseMapper.toDTO(course);
     }
