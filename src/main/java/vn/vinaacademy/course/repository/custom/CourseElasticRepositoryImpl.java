@@ -1,6 +1,5 @@
 package vn.vinaacademy.course.repository.custom;
 
-import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.SearchHitSupport;
@@ -10,7 +9,6 @@ import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.SearchHit;
@@ -18,7 +16,6 @@ import org.springframework.stereotype.Repository;
 import vn.vinaacademy.course.document.CourseDocument;
 import vn.vinaacademy.course.dto.CourseSearchRequest;
 import vn.vinaacademy.course.dto.InstructorCourseSearchRequest;
-import vn.vinaacademy.course.entity.Course;
 import vn.vinaacademy.course.repository.CourseElasticRepositoryCustom;
 
 import java.util.UUID;
